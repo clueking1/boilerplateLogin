@@ -1,5 +1,6 @@
 const passport = require('../config/passport')
-const db = require('../models')
+const db = require('../models/user')
+const { check, validationResult } = require('express-validator');
 
 module.exports = function(app) {
     app.post('/user', [
@@ -13,10 +14,11 @@ module.exports = function(app) {
           return res.status(422).json({ errors: errors.array() });
         }
       
-        User.create({
-          username: req.body.username,
-          password: req.body.password,
-          email: req.body.email
-        }).then(user => res.json(user));
+        db.create(
+           req.body.username,
+           req.body.email,
+          req.body.password
+        )
+        res.redirect('/')
       });
 }
