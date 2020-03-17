@@ -44,7 +44,6 @@ module.exports = function(app) {
       })
 
       app.get('/api/user_data', (req, res) => {
-        console.log(!req.user[0])
         if (!req.user[0]) {
           res.json({})
         } else {
