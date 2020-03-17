@@ -1,6 +1,7 @@
 const loginForm = document.querySelector('.login')
 const emailInput = document.querySelector('#email-input')
 const passwordInput = document.querySelector('#password-input')
+const errorTxt = document.querySelector('.errText')
 
 loginForm.addEventListener('submit', function(e) {
     e.preventDefault()
@@ -31,7 +32,8 @@ function loginUser(username, password) {
         window.location.replace('/members')
     }).catch(err => {
         if (err) {
-            throw err
+            
+            errorTxt.textContent = "Username or Password is invalid."
         }
     })
 }
