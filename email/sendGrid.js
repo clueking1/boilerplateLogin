@@ -18,16 +18,4 @@ sgMail.send(msg);
     
   };
 
-
-  function final (requ) {
-    console.log(requ)
-    // sg.API(requ[0].body, function (error, response) {
-    //     if (error) {
-    //       throw error;
-    //     }
-    //     else {
-    //       console.log('hiiii');
-    //     }
-    //   });
-  }
   module.exports = sendEmail
