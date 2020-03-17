@@ -42,4 +42,16 @@ module.exports = function(app) {
         req.logout()
         res.redirect('/')
       })
+
+      app.get('/api/user_data', (req, res) => {
+        console.log(!req.user[0])
+        if (!req.user[0]) {
+          res.json({})
+        } else {
+          res.json({
+            username: req.user[0].username,
+            id: req.user[0].id
+          })
+        }
+      })
 }
