@@ -14,7 +14,7 @@ const create = {
    }   
    else{
        if(data[0].cnt > 0){  
-             console.log('already exsists') 
+            return
        }else{
         password = bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
         // bcrypt.compareSync(password)
