@@ -32,7 +32,6 @@ function loginUser(username, password) {
         window.location.replace('/members')
     }).catch(err => {
         if (err) {
-            
             errorTxt.textContent = "Username or Password is invalid."
         }
     })

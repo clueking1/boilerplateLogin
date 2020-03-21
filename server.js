@@ -1,11 +1,13 @@
 const express = require('express')
 const session = require('express-session')
 const passport = require('./config/passport')
+const compression = require('compression')
 require('dotenv').config()
 
 const PORT = process.env.PORT || 8080
 
 const app = express()
+app.use(compression())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(express.static('public'))
