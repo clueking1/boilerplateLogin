@@ -12,8 +12,15 @@ const send = {
             if(err) {
                 throw err
             }
-            
-            sendEmail(userEmail, result.token)
+            con.query('SELECT * FROM auth WHERE userId = ?',[userId], (err, data) => {
+                if (err) {
+                    throw err
+                }
+                //console.log(data[0].token)
+                 sendEmail(userEmail, data[0].token)
+            })
+            // console.log(result)
+            // sendEmail(userEmail, result.token)
             
             // .then(res => {res.status(200).json(`${user.email} account created successfully`)})
             // .catch((error) => {
