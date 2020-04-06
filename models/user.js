@@ -1,6 +1,6 @@
 
 const con = require('../config/config')
-const send = require('./signUpControl')
+
 
 
 const bcrypt = require('bcryptjs')
@@ -23,12 +23,7 @@ const create = {
             if (err) {
                 throw err
             }
-            con.query('SELECT * FROM user WHERE username = ?',[username],(err, result) => {
-                if (err) {
-                    throw err
-                }
-                send.send(result[0].id, result[0].email)
-            })
+
         })               
        }
    }
